@@ -1,0 +1,493 @@
+/* Proctor Dashboard Specific Styles */
+
+.webcam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+.webcam-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--gray-200);
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.webcam-card:hover {
+  transform: translateY(-2px);
+}
+
+.webcam-card.flagged {
+  border-color: var(--error);
+  background: #fef2f2;
+}
+
+.webcam-card.warning {
+  border-color: var(--warning);
+  background: #fffbeb;
+}
+
+.webcam-header {
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-info h4 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.student-info p {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.student-status {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray-400);
+}
+
+.status-indicator.active {
+  background: var(--success);
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.warning {
+  background: var(--warning);
+}
+
+.status-indicator.flagged {
+  background: var(--error);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.webcam-feed {
+  width: 100%;
+  height: 200px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.webcam-feed video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.webcam-placeholder {
+  color: var(--gray-400);
+  text-align: center;
+}
+
+.webcam-placeholder .placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-2);
+}
+
+.webcam-controls {
+  padding: var(--spacing-3) var(--spacing-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.webcam-time {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+}
+
+.webcam-actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.flag-btn {
+  background: var(--error);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.flag-btn:hover {
+  background: #dc2626;
+}
+
+.flag-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.warning-btn {
+  background: var(--warning);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.warning-btn:hover {
+  background: #d97706;
+}
+
+/* Activity Log */
+.activity-log {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.activity-log-header {
+  padding: var(--spacing-4);
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+.activity-log-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.activity-item {
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+  margin-top: var(--spacing-1);
+}
+
+.activity-icon.info {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.activity-icon.warning {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.activity-icon.error {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-student {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: var(--font-size-sm);
+}
+
+.activity-message {
+  color: var(--gray-700);
+  font-size: var(--font-size-sm);
+  margin: var(--spacing-1) 0;
+}
+
+.activity-time {
+  color: var(--gray-500);
+  font-size: var(--font-size-sm);
+}
+
+/* Exam Overview */
+.exam-overview {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-4);
+}
+
+.exam-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.exam-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.exam-timer {
+  text-align: right;
+}
+
+.timer-label {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.timer-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.exam-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.exam-stat {
+  text-align: center;
+  padding: var(--spacing-3);
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+}
+
+.exam-stat-value {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.exam-stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* Controls Panel */
+.controls-panel {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+.controls-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.control-buttons {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-btn.primary {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.control-btn.primary:hover {
+  background: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.control-btn.danger {
+  background: var(--error);
+  color: var(--white);
+}
+
+.control-btn.danger:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.control-btn.secondary {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.control-btn.secondary:hover {
+  background: var(--gray-300);
+}
+
+/* Responsive Design for Proctor Dashboard */
+@media (max-width: 1024px) {
+  .webcam-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .exam-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .webcam-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .exam-header {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    text-align: center;
+  }
+  
+  .exam-timer {
+    text-align: center;
+  }
+  
+  .exam-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .control-buttons {
+    justify-content: center;
+  }
+  
+  .webcam-controls {
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+  
+  .webcam-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .exam-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .control-buttons {
+    flex-direction: column;
+  }
+  
+  .webcam-feed {
+    height: 150px;
+  }
+}
+
+/* Full Screen Mode */
+.fullscreen-webcam {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--black);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-webcam video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.fullscreen-controls {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.fullscreen-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.fullscreen-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
