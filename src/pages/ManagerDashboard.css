@@ -1,0 +1,295 @@
+/* Manager Dashboard Specific Styles */
+
+/* Task Grid */
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.task-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--border-color);
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.task-card:hover::before {
+  background: var(--primary-color);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.task-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.task-priority {
+  flex-shrink: 0;
+}
+
+.task-description {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.task-details {
+  margin-bottom: 1.5rem;
+}
+
+.task-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.task-label {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.task-value {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-select {
+  padding: 0.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 120px;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.status-todo {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: #eff6ff;
+}
+
+.status-in-progress {
+  border-color: #f59e0b;
+  color: #f59e0b;
+  background: #fffbeb;
+}
+
+.status-done {
+  border-color: #10b981;
+  color: #10b981;
+  background: #ecfdf5;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.employee-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+
+.employee-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--primary-color);
+}
+
+.employee-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.employee-info {
+  flex: 1;
+}
+
+.employee-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0 0 0.25rem 0;
+}
+
+.employee-email {
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.employee-department {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.employee-stats {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Enhanced Stats Cards for Manager */
+.stats-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, white 0%, #f8fafc 100%);
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+}
+
+.stats-card:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--success-color), #059669);
+}
+
+.stats-card:nth-child(3)::before {
+  background: linear-gradient(90deg, var(--warning-color), #d97706);
+}
+
+.stats-card:nth-child(4)::before {
+  background: linear-gradient(90deg, var(--info-color, #3b82f6), #2563eb);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tasks-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .task-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .status-select {
+    width: 100%;
+  }
+  
+  .employee-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .employee-stats {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-card {
+    padding: 1rem;
+  }
+  
+  .employee-card {
+    padding: 1rem;
+  }
+  
+  .employee-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
